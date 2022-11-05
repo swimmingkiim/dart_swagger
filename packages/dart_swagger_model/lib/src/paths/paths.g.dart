@@ -1,18 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'contact.dart';
+part of 'paths.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Contact _$ContactFromJson(Map<String, dynamic> json) => Contact(
-      name: json['name'] as String?,
-      url: json['url'] as String?,
-      email: json['email'] as String?,
+Paths _$PathsFromJson(Map<String, dynamic> json) => Paths(
+      $routePaths: (json[r'$routePaths'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(k, PathItem.fromJson(e as Map<String, dynamic>)),
+      ),
     );
 
-Map<String, dynamic> _$ContactToJson(Contact instance) {
+Map<String, dynamic> _$PathsToJson(Paths instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -21,8 +21,6 @@ Map<String, dynamic> _$ContactToJson(Contact instance) {
     }
   }
 
-  writeNotNull('name', instance.name);
-  writeNotNull('url', instance.url);
-  writeNotNull('email', instance.email);
+  writeNotNull(r'$routePaths', Paths.pathItemsToJson(instance.$routePaths));
   return val;
 }

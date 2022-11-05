@@ -15,9 +15,19 @@ OpenApi _$OpenApiFromJson(Map<String, dynamic> json) => OpenApi(
           .toList(),
     );
 
-Map<String, dynamic> _$OpenApiToJson(OpenApi instance) => <String, dynamic>{
-      'openapi': instance.openapi,
-      'info': instance.info,
-      'paths': instance.paths,
-      'servers': instance.servers,
-    };
+Map<String, dynamic> _$OpenApiToJson(OpenApi instance) {
+  final val = <String, dynamic>{
+    'openapi': instance.openapi,
+    'info': OpenApi.infoToJson(instance.info),
+    'paths': OpenApi.pathsToJson(instance.paths),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('servers', OpenApi.serversToJson(instance.servers));
+  return val;
+}

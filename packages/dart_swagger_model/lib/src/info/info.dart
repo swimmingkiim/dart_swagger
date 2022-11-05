@@ -12,7 +12,9 @@ class Info {
   final String version;
   String? description;
   String? termsOfService;
+  @JsonKey(toJson: contactToJson)
   Contact? contact;
+  @JsonKey(toJson: licenseToJson)
   License? license;
 
   Info({
@@ -27,4 +29,8 @@ class Info {
   factory Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);
 
   Map<String, dynamic> toJson() => _$InfoToJson(this);
+  static Map<String, dynamic>? contactToJson(Contact? contact) =>
+      contact?.toJson();
+  static Map<String, dynamic>? licenseToJson(License? license) =>
+      license?.toJson();
 }

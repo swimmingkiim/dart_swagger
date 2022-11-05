@@ -19,11 +19,21 @@ Info _$InfoFromJson(Map<String, dynamic> json) => Info(
           : License.fromJson(json['license'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$InfoToJson(Info instance) => <String, dynamic>{
-      'title': instance.title,
-      'version': instance.version,
-      'description': instance.description,
-      'termsOfService': instance.termsOfService,
-      'contact': instance.contact,
-      'license': instance.license,
-    };
+Map<String, dynamic> _$InfoToJson(Info instance) {
+  final val = <String, dynamic>{
+    'title': instance.title,
+    'version': instance.version,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  writeNotNull('termsOfService', instance.termsOfService);
+  writeNotNull('contact', Info.contactToJson(instance.contact));
+  writeNotNull('license', Info.licenseToJson(instance.license));
+  return val;
+}
