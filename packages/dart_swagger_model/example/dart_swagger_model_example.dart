@@ -7,5 +7,5 @@ void main() async {
   final file = File('./example/test.json');
   final testJson = jsonDecode(file.readAsStringSync());
   final OpenApi openApi = OpenApi.fromJson(testJson);
-  print(openApi.toJson());
+  print(jsonEncode(openApi.toJson()));
 }
