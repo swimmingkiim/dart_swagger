@@ -1,8 +1,9 @@
+import 'package:dart_swagger_model/src/paths/paths.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
 import 'package:dart_swagger_model/src/info/info.dart';
-import 'package:dart_swagger_model/src/servers/servers.dart';
+import 'package:dart_swagger_model/src/server/server.dart';
 
 part 'open_api.g.dart';
 
@@ -10,11 +11,13 @@ part 'open_api.g.dart';
 class OpenApi {
   final String openapi;
   final Info info;
-  Servers? servers;
+  final Paths paths;
+  List<Server>? servers;
 
   OpenApi({
     required this.openapi,
     required this.info,
+    required this.paths,
     this.servers,
   });
 
