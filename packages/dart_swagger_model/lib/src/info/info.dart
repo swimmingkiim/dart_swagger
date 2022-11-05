@@ -1,8 +1,8 @@
-import 'package:dart_swagger_model/src/info/license/license.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
 import 'package:dart_swagger_model/src/info/contact/contact.dart';
+import 'package:dart_swagger_model/src/info/license/license.dart';
 
 part 'info.g.dart';
 
