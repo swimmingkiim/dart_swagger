@@ -1,0 +1,12 @@
+name: dart_swagger
+
+packages:
+  - packages/**
+
+scripts:
+  analyze:
+    exec: dart analyze --fatal-infos .
+  format:
+    exec: dart format .
+  validate:
+    exec: melos run format && melos run analyze
