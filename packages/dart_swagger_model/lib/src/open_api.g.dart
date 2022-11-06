@@ -13,6 +13,17 @@ OpenApi _$OpenApiFromJson(Map<String, dynamic> json) => OpenApi(
       servers: (json['servers'] as List<dynamic>?)
           ?.map((e) => Server.fromJson(e as Map<String, dynamic>))
           .toList(),
+      securityRequirement: json['securityRequirement'] == null
+          ? null
+          : SecurityRequirement.fromJson(
+              json['securityRequirement'] as Map<String, dynamic>),
+      externalDocs: json['externalDocs'] == null
+          ? null
+          : ExternalDocumentation.fromJson(
+              json['externalDocs'] as Map<String, dynamic>),
+      tags: (json['tags'] as List<dynamic>?)
+          ?.map((e) => Tag.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$OpenApiToJson(OpenApi instance) {
@@ -29,5 +40,12 @@ Map<String, dynamic> _$OpenApiToJson(OpenApi instance) {
   }
 
   writeNotNull('servers', OpenApi.serversToJson(instance.servers));
+  writeNotNull(
+      'securityRequirement',
+      SecurityRequirement.nullableSecurityRequirementToJson(
+          instance.securityRequirement));
+  writeNotNull('externalDocs',
+      ExternalDocumentation.externalDocumentationToJson(instance.externalDocs));
+  writeNotNull('tags', Tag.nullableTagsToJson(instance.tags));
   return val;
 }
