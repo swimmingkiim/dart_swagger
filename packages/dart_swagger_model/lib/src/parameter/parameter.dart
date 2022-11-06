@@ -1,11 +1,11 @@
-import 'package:dart_swagger_model/src/example/example.dart';
-import 'package:dart_swagger_model/src/media_type/media_type.dart';
-import 'package:dart_swagger_model/src/paths/path_item/parameters/parameter/parameter_or_reference.dart';
-import 'package:dart_swagger_model/src/schema/schema.dart';
-import 'package:dart_swagger_model/src/schema/schema_or_reference.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
+import 'package:dart_swagger_model/src/example/example.dart';
+import 'package:dart_swagger_model/src/media_type/media_type.dart';
+import 'package:dart_swagger_model/src/parameter/parameter_or_reference.dart';
+import 'package:dart_swagger_model/src/schema/schema.dart';
+import 'package:dart_swagger_model/src/schema/schema_or_reference.dart';
 import 'package:dart_swagger_model/src/example/example_or_reference.dart';
 
 part 'parameter.g.dart';

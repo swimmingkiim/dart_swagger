@@ -1,10 +1,10 @@
-import 'package:dart_swagger_model/src/paths/path_item/parameters/parameter/parameter.dart';
-import 'package:dart_swagger_model/src/paths/path_item/parameters/parameter/parameter_or_reference.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
+import 'package:dart_swagger_model/src/parameter/parameter.dart';
+import 'package:dart_swagger_model/src/parameter/parameter_or_reference.dart';
 import 'package:dart_swagger_model/src/server/server.dart';
-import 'package:dart_swagger_model/src/paths/path_item/operation/operation.dart';
+import 'package:dart_swagger_model/src/operation/operation.dart';
 
 part 'path_item.g.dart';
 

@@ -9,8 +9,8 @@ import 'package:json_annotation/json_annotation.dart';
 // sub models
 import 'package:dart_swagger_model/src/server/server.dart';
 import 'package:dart_swagger_model/src/external_documentation/external_documentation.dart';
-import 'package:dart_swagger_model/src/paths/path_item/parameters/parameter/parameter.dart';
-import 'package:dart_swagger_model/src/paths/path_item/parameters/parameter/parameter_or_reference.dart';
+import 'package:dart_swagger_model/src/parameter/parameter.dart';
+import 'package:dart_swagger_model/src/parameter/parameter_or_reference.dart';
 
 part 'operation.g.dart';
 

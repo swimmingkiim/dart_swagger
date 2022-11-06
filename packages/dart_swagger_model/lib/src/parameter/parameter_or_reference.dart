@@ -1,9 +1,9 @@
-import 'package:dart_swagger_model/src/paths/path_item/parameters/parameter/parameter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:dart_swagger_model/util/either.dart';
 
 // sub models
+import 'package:dart_swagger_model/src/parameter/parameter.dart';
 import 'package:dart_swagger_model/src/reference/reference.dart';
 
 part 'parameter_or_reference.g.dart';

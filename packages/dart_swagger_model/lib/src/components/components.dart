@@ -1,3 +1,6 @@
+import 'package:json_annotation/json_annotation.dart';
+
+// sub models
 import 'package:dart_swagger_model/src/callback/callback.dart';
 import 'package:dart_swagger_model/src/callback/callback_or_reference.dart';
 import 'package:dart_swagger_model/src/example/example.dart';
@@ -6,8 +9,8 @@ import 'package:dart_swagger_model/src/header/header.dart';
 import 'package:dart_swagger_model/src/header/header_or_reference.dart';
 import 'package:dart_swagger_model/src/link/link.dart';
 import 'package:dart_swagger_model/src/link/link_or_reference.dart';
-import 'package:dart_swagger_model/src/paths/path_item/parameters/parameter/parameter.dart';
-import 'package:dart_swagger_model/src/paths/path_item/parameters/parameter/parameter_or_reference.dart';
+import 'package:dart_swagger_model/src/parameter/parameter.dart';
+import 'package:dart_swagger_model/src/parameter/parameter_or_reference.dart';
 import 'package:dart_swagger_model/src/request_body/request_body.dart';
 import 'package:dart_swagger_model/src/request_body/request_body_or_reference.dart';
 import 'package:dart_swagger_model/src/response/response.dart';
@@ -16,9 +19,6 @@ import 'package:dart_swagger_model/src/schema/schema.dart';
 import 'package:dart_swagger_model/src/schema/schema_or_reference.dart';
 import 'package:dart_swagger_model/src/security_scheme/security_scheme.dart';
 import 'package:dart_swagger_model/src/security_scheme/security_scheme_or_reference.dart';
-import 'package:json_annotation/json_annotation.dart';
-
-// sub models
 
 part 'components.g.dart';
 
