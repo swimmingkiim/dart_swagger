@@ -14,6 +14,13 @@ Operation _$OperationFromJson(Map<String, dynamic> json) => Operation(
       servers: (json['servers'] as List<dynamic>?)
           ?.map((e) => Server.fromJson(e as Map<String, dynamic>))
           .toList(),
+      parameters: (json['parameters'] as List<dynamic>?)
+          ?.map((e) => ParameterOrReference.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      externalDocs: json['externalDocs'] == null
+          ? null
+          : ExternalDocumentation.fromJson(
+              json['externalDocs'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$OperationToJson(Operation instance) {
@@ -29,6 +36,9 @@ Map<String, dynamic> _$OperationToJson(Operation instance) {
   writeNotNull('summary', instance.summary);
   writeNotNull('description', instance.description);
   writeNotNull('operationId', instance.operationId);
-  writeNotNull('servers', Operation.serversToJson(instance.servers));
+  writeNotNull('servers', Server.serversToJson(instance.servers));
+  writeNotNull('parameters', Parameter.parametersToJson(instance.parameters));
+  writeNotNull('externalDocs',
+      ExternalDocumentation.externalDocumentationToJson(instance.externalDocs));
   return val;
 }

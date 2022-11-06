@@ -54,15 +54,15 @@ Map<String, dynamic> _$PathItemToJson(PathItem instance) {
   writeNotNull(r'$ref', instance.$ref);
   writeNotNull('summary', instance.summary);
   writeNotNull('description', instance.description);
-  writeNotNull('servers', instance.servers);
-  writeNotNull('get', instance.get);
-  writeNotNull('put', instance.put);
-  writeNotNull('post', instance.post);
-  writeNotNull('delete', instance.delete);
-  writeNotNull('options', instance.options);
-  writeNotNull('head', instance.head);
-  writeNotNull('patch', instance.patch);
-  writeNotNull('trace', instance.trace);
-  writeNotNull('parameters', PathItem.parametersToJson(instance.parameters));
+  writeNotNull('servers', Server.serversToJson(instance.servers));
+  writeNotNull('get', Operation.operationToJson(instance.get));
+  writeNotNull('put', Operation.operationToJson(instance.put));
+  writeNotNull('post', Operation.operationToJson(instance.post));
+  writeNotNull('delete', Operation.operationToJson(instance.delete));
+  writeNotNull('options', Operation.operationToJson(instance.options));
+  writeNotNull('head', Operation.operationToJson(instance.head));
+  writeNotNull('patch', Operation.operationToJson(instance.patch));
+  writeNotNull('trace', Operation.operationToJson(instance.trace));
+  writeNotNull('parameters', Parameter.parametersToJson(instance.parameters));
   return val;
 }

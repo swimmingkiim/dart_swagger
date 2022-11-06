@@ -1,3 +1,5 @@
+import 'package:dart_swagger_model/src/example/example.dart';
+import 'package:dart_swagger_model/src/paths/path_item/parameters/parameter/parameter_or_reference.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
@@ -18,7 +20,7 @@ class Parameter {
   bool? explode;
   bool? allowReserved;
   dynamic example;
-  @JsonKey(toJson: examplesToJson)
+  @JsonKey(toJson: Example.examplesToJson)
   Map<String, ExampleOrReference>? examples;
 
   Parameter({
@@ -39,7 +41,8 @@ class Parameter {
       _$ParameterFromJson(json);
 
   Map<String, dynamic> toJson() => _$ParameterToJson(this);
-  static Map<String, dynamic>? examplesToJson(
-          Map<String, ExampleOrReference>? examples) =>
-      examples?.map((key, value) => MapEntry(key, value.toJson()));
+
+  static List<Map<String, dynamic>>? parametersToJson(
+          List<ParameterOrReference>? parameters) =>
+      parameters?.map((parameter) => parameter.toJson()).toList();
 }

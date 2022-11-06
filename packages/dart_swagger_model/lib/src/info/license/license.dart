@@ -16,4 +16,7 @@ class License {
       _$LicenseFromJson(json);
 
   Map<String, dynamic> toJson() => _$LicenseToJson(this);
+
+  static Map<String, dynamic>? licenseToJson(License? license) =>
+      license?.toJson();
 }

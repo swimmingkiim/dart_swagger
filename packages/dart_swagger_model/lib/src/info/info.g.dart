@@ -33,7 +33,7 @@ Map<String, dynamic> _$InfoToJson(Info instance) {
 
   writeNotNull('description', instance.description);
   writeNotNull('termsOfService', instance.termsOfService);
-  writeNotNull('contact', Info.contactToJson(instance.contact));
-  writeNotNull('license', Info.licenseToJson(instance.license));
+  writeNotNull('contact', Contact.contactToJson(instance.contact));
+  writeNotNull('license', License.licenseToJson(instance.license));
   return val;
 }

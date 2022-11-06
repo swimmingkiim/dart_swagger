@@ -24,6 +24,9 @@ class ExampleOrReference extends Either<Example, Reference> {
 
   Map<String, dynamic> toJson() {
     final json = _$ExampleOrReferenceToJson(this);
-    return json['left'] ?? json['right'];
+    if (left != null) {
+      return (json['left'] as Example).toJson();
+    }
+    return (json['right'] as Reference).toJson();
   }
 }

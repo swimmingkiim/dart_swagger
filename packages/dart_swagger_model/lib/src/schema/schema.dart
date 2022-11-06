@@ -1,4 +1,4 @@
-import 'package:dart_swagger_model/src/schema/additional_properties/additional_properties.dart';
+import 'package:dart_swagger_model/src/schema/shcema_or_boolean/schema_or_boolean.dart';
 import 'package:dart_swagger_model/src/schema/discriminator/discriminator.dart';
 import 'package:dart_swagger_model/src/schema/properties/properties.dart';
 import 'package:dart_swagger_model/src/schema/schema_or_reference.dart';
@@ -15,9 +15,9 @@ class Schema {
   dynamic example;
   bool? deprecated;
 
-  @JsonKey(toJson: discriminatorToJson)
+  @JsonKey(toJson: Discriminator.discriminatorToJson)
   Discriminator? discriminator;
-  @JsonKey(toJson: xmlToJson)
+  @JsonKey(toJson: Xml.xmlToJson)
   Xml? xml;
 
   String? title;
@@ -49,11 +49,9 @@ class Schema {
   SchemaOrReference? not;
   @JsonKey(toJson: schemaOrReferenceToJson)
   SchemaOrReference? items;
-  @JsonKey(toJson: propertiesToJson)
+  @JsonKey(toJson: Properties.nullablePropertiesToJson)
   Properties? properties;
-  @JsonKey(
-      fromJson: additionalPropertiesFromValue,
-      toJson: additionalPropertiesToValue)
+  @JsonKey(fromJson: schemaOrBooleanFromValue, toJson: schemaOrBooleanToValue)
   SchemaOrBoolean? additionalProperties;
   String? description;
   String? format;
@@ -101,21 +99,15 @@ class Schema {
 
   Map<String, dynamic> toJson() => _$SchemaToJson(this);
 
-  static additionalPropertiesFromValue(dynamic value) =>
-      SchemaOrBoolean.fromValue(value);
-  static additionalPropertiesToValue(SchemaOrBoolean? additionalProperties) =>
-      additionalProperties?.toValue();
-
-  static Map<String, dynamic>? discriminatorToJson(
-          Discriminator? discriminator) =>
-      discriminator?.toJson();
-  static Map<String, dynamic>? xmlToJson(Xml? xml) => xml?.toJson();
   static List<Map<String, dynamic>>? schemaOrReferenceListToJson(
           List<SchemaOrReference>? list) =>
       list?.map((schemaOrReference) => schemaOrReference.toJson()).toList();
   static Map<String, dynamic>? schemaOrReferenceToJson(
           SchemaOrReference? schemaOrReference) =>
       schemaOrReference?.toJson();
-  static Map<String, dynamic>? propertiesToJson(Properties? properties) =>
-      properties?.toJson();
+
+  static schemaOrBooleanFromValue(dynamic value) =>
+      SchemaOrBoolean.fromValue(value);
+  static schemaOrBooleanToValue(SchemaOrBoolean? schemaOrBoolean) =>
+      schemaOrBoolean?.toValue();
 }

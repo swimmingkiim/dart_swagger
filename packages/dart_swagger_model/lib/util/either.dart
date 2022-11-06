@@ -20,6 +20,5 @@ class Either<A, B> {
       right = value;
       return;
     }
-    throw Error();
   }
 }

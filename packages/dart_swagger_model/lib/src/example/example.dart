@@ -1,3 +1,4 @@
+import 'package:dart_swagger_model/src/example/example_or_reference.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'example.g.dart';
@@ -20,4 +21,8 @@ class Example {
       _$ExampleFromJson(json);
 
   Map<String, dynamic> toJson() => _$ExampleToJson(this);
+
+  static Map<String, dynamic>? examplesToJson(
+          Map<String, ExampleOrReference>? examples) =>
+      examples?.map((key, value) => MapEntry(key, value.toJson()));
 }

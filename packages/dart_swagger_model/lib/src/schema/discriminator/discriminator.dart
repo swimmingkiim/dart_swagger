@@ -16,4 +16,8 @@ class Discriminator {
       _$DiscriminatorFromJson(json);
 
   Map<String, dynamic> toJson() => _$DiscriminatorToJson(this);
+
+  static Map<String, dynamic>? discriminatorToJson(
+          Discriminator? discriminator) =>
+      discriminator?.toJson();
 }

@@ -24,6 +24,9 @@ class SchemaOrReference extends Either<Schema, Reference> {
 
   Map<String, dynamic> toJson() {
     final json = _$SchemaOrReferenceToJson(this);
-    return json['left'] ?? json['right'];
+    if (left != null) {
+      return (json['left'] as Schema).toJson();
+    }
+    return (json['right'] as Reference).toJson();
   }
 }

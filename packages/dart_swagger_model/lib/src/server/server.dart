@@ -20,4 +20,7 @@ class Server {
   factory Server.fromJson(Map<String, dynamic> json) => _$ServerFromJson(json);
 
   Map<String, dynamic> toJson() => _$ServerToJson(this);
+
+  static List<Map<String, dynamic>>? serversToJson(List<Server>? servers) =>
+      servers?.map((server) => server.toJson()).toList();
 }

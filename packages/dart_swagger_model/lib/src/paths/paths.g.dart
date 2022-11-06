@@ -21,6 +21,6 @@ Map<String, dynamic> _$PathsToJson(Paths instance) {
     }
   }
 
-  writeNotNull(r'$routePaths', Paths.pathItemsToJson(instance.$routePaths));
+  writeNotNull(r'$routePaths', PathItem.pathItemsToJson(instance.$routePaths));
   return val;
 }

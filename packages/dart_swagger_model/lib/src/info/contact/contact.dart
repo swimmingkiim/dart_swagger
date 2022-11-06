@@ -18,4 +18,7 @@ class Contact {
       _$ContactFromJson(json);
 
   Map<String, dynamic> toJson() => _$ContactToJson(this);
+
+  static Map<String, dynamic>? contactToJson(Contact? contact) =>
+      contact?.toJson();
 }

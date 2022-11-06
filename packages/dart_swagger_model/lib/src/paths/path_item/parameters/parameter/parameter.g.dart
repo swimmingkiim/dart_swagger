@@ -43,6 +43,6 @@ Map<String, dynamic> _$ParameterToJson(Parameter instance) {
   writeNotNull('explode', instance.explode);
   writeNotNull('allowReserved', instance.allowReserved);
   writeNotNull('example', instance.example);
-  writeNotNull('examples', Parameter.examplesToJson(instance.examples));
+  writeNotNull('examples', Example.examplesToJson(instance.examples));
   return val;
 }

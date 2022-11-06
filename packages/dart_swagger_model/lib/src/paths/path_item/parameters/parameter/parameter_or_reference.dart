@@ -24,6 +24,9 @@ class ParameterOrReference extends Either<Parameter, Reference> {
 
   Map<String, dynamic> toJson() {
     final json = _$ParameterOrReferenceToJson(this);
-    return json['left'] ?? json['right'];
+    if (left != null) {
+      return (json['left'] as Parameter).toJson();
+    }
+    return (json['right'] as Reference).toJson();
   }
 }

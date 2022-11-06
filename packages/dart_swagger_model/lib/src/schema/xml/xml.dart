@@ -21,4 +21,6 @@ class Xml {
   factory Xml.fromJson(Map<String, dynamic> json) => _$XmlFromJson(json);
 
   Map<String, dynamic> toJson() => _$XmlToJson(this);
+
+  static Map<String, dynamic>? xmlToJson(Xml? xml) => xml?.toJson();
 }

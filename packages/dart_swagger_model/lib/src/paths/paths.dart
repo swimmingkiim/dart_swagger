@@ -7,7 +7,7 @@ part 'paths.g.dart';
 
 @JsonSerializable()
 class Paths {
-  @JsonKey(toJson: pathItemsToJson)
+  @JsonKey(toJson: PathItem.pathItemsToJson)
   final Map<String, PathItem> $routePaths;
 
   Paths({
@@ -19,7 +19,4 @@ class Paths {
   }
 
   Map<String, dynamic> toJson() => _$PathsToJson(this)['\$routePaths'];
-  static Map<String, dynamic>? pathItemsToJson(
-          Map<String, PathItem>? pathItems) =>
-      pathItems?.map((key, value) => MapEntry(key, value.toJson()));
 }

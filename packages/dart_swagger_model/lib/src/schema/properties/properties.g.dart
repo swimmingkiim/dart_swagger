@@ -13,16 +13,7 @@ Properties _$PropertiesFromJson(Map<String, dynamic> json) => Properties(
       ),
     );
 
-Map<String, dynamic> _$PropertiesToJson(Properties instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(
-      r'$properties', Properties.propertiesToJson(instance.$properties));
-  return val;
-}
+Map<String, dynamic> _$PropertiesToJson(Properties instance) =>
+    <String, dynamic>{
+      r'$properties': Properties.propertiesToJson(instance.$properties),
+    };

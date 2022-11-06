@@ -19,7 +19,12 @@ class Properties {
   }
 
   Map<String, dynamic> toJson() => _$PropertiesToJson(this)['\$properties'];
-  static Map<String, dynamic>? propertiesToJson(
-          Map<String, SchemaOrReference>? properties) =>
-      properties?.map((key, value) => MapEntry(key, value.toJson()));
+  static Map<String, dynamic> propertiesToJson(
+          Map<String, SchemaOrReference> $properties) =>
+      $properties.map((key, value) => MapEntry(key, value.toJson()));
+
+  static Map<String, dynamic>? nullablePropertiesToJson(
+          Properties? properties) =>
+      properties?.$properties
+          .map((key, value) => MapEntry(key, value.toJson()));
 }

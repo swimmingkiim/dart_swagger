@@ -55,7 +55,7 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) => Schema(
           ? null
           : Properties.fromJson(json['properties'] as Map<String, dynamic>),
       additionalProperties:
-          Schema.additionalPropertiesFromValue(json['additionalProperties']),
+          Schema.schemaOrBooleanFromValue(json['additionalProperties']),
       description: json['description'] as String?,
       format: json['format'] as String?,
       $default: json['default'],
@@ -75,9 +75,9 @@ Map<String, dynamic> _$SchemaToJson(Schema instance) {
   writeNotNull('writeOnly', instance.writeOnly);
   writeNotNull('example', instance.example);
   writeNotNull('deprecated', instance.deprecated);
-  writeNotNull(
-      'discriminator', Schema.discriminatorToJson(instance.discriminator));
-  writeNotNull('xml', Schema.xmlToJson(instance.xml));
+  writeNotNull('discriminator',
+      Discriminator.discriminatorToJson(instance.discriminator));
+  writeNotNull('xml', Xml.xmlToJson(instance.xml));
   writeNotNull('title', instance.title);
   writeNotNull('multipleOf', instance.multipleOf);
   writeNotNull('maximum', instance.maximum);
@@ -100,9 +100,10 @@ Map<String, dynamic> _$SchemaToJson(Schema instance) {
   writeNotNull('anyOf', Schema.schemaOrReferenceListToJson(instance.anyOf));
   writeNotNull('not', Schema.schemaOrReferenceToJson(instance.not));
   writeNotNull('items', Schema.schemaOrReferenceToJson(instance.items));
-  writeNotNull('properties', Schema.propertiesToJson(instance.properties));
+  writeNotNull(
+      'properties', Properties.nullablePropertiesToJson(instance.properties));
   writeNotNull('additionalProperties',
-      Schema.additionalPropertiesToValue(instance.additionalProperties));
+      Schema.schemaOrBooleanToValue(instance.additionalProperties));
   writeNotNull('description', instance.description);
   writeNotNull('format', instance.format);
   writeNotNull('default', instance.$default);
