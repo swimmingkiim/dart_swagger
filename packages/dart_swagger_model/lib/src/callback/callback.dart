@@ -1,8 +1,8 @@
-import 'package:dart_swagger_model/src/callback/callback_or_reference.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
 import 'package:dart_swagger_model/src/paths/path_item/path_item.dart';
+import 'package:dart_swagger_model/src/callback/callback_or_reference.dart';
 
 part 'callback.g.dart';
 

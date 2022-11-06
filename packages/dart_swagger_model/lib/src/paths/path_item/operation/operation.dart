@@ -3,6 +3,7 @@ import 'package:dart_swagger_model/src/callback/callback_or_reference.dart';
 import 'package:dart_swagger_model/src/request_body/request_body.dart';
 import 'package:dart_swagger_model/src/request_body/request_body_or_reference.dart';
 import 'package:dart_swagger_model/src/responses/responses.dart';
+import 'package:dart_swagger_model/src/security_requirement/security_requirement.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
@@ -32,6 +33,8 @@ class Operation {
   @JsonKey(toJson: Callback.nullableCallbacksToJson)
   Map<String, CallbackOrReference>? callbacks;
   bool? deprecated;
+  @JsonKey(toJson: SecurityRequirement.nullableSecurityRequirementToJson)
+  SecurityRequirement? securityRequirement;
 
   Operation({
     required this.responses,
@@ -45,6 +48,7 @@ class Operation {
     this.requestBody,
     this.callbacks,
     this.deprecated = false,
+    this.securityRequirement,
   });
 
   factory Operation.fromJson(Map<String, dynamic> json) =>
