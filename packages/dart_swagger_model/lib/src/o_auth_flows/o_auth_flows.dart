@@ -26,6 +26,6 @@ class OAuthFlows {
 
   Map<String, dynamic> toJson() => _$OAuthFlowsToJson(this);
 
-  // static Map<String, dynamic>? nullableOAuthFlowToJson(OAuthFlows? oAuthFlow) =>
-  //     oAuthFlow?.toJson();
+  static Map<String, dynamic> oAuthFlowToJson(OAuthFlows oAuthFlows) =>
+      oAuthFlows.toJson();
 }
