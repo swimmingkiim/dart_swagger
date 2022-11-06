@@ -21,6 +21,10 @@ Operation _$OperationFromJson(Map<String, dynamic> json) => Operation(
           ? null
           : ExternalDocumentation.fromJson(
               json['externalDocs'] as Map<String, dynamic>),
+      requestBody: json['requestBody'] == null
+          ? null
+          : RequestBodyOrReference.fromJson(
+              json['requestBody'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$OperationToJson(Operation instance) {
@@ -40,5 +44,7 @@ Map<String, dynamic> _$OperationToJson(Operation instance) {
   writeNotNull('parameters', Parameter.parametersToJson(instance.parameters));
   writeNotNull('externalDocs',
       ExternalDocumentation.externalDocumentationToJson(instance.externalDocs));
+  writeNotNull('requestBody',
+      RequestBody.requestBodyOrReferenceToJson(instance.requestBody));
   return val;
 }

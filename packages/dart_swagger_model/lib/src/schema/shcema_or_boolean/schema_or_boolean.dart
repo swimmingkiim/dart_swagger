@@ -13,7 +13,10 @@ class SchemaOrBoolean extends Either<Schema, bool> {
     if (value is bool) {
       return SchemaOrBoolean(right: value);
     }
-    return SchemaOrBoolean(left: Schema.fromJson(value));
+    if (value is Map<String, dynamic>) {
+      return SchemaOrBoolean(left: Schema.fromJson(value));
+    }
+    return SchemaOrBoolean();
   }
 
   dynamic toValue() {

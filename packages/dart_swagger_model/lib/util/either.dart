@@ -9,7 +9,7 @@ class Either<A, B> {
 
   Type get type => left != null ? left.runtimeType : right.runtimeType;
 
-  get value => left as A ?? right as B;
+  get value => left ?? right;
 
   set value(dynamic value) {
     if (value is A) {

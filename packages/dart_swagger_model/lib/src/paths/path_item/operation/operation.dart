@@ -1,3 +1,5 @@
+import 'package:dart_swagger_model/src/request_body/request_body.dart';
+import 'package:dart_swagger_model/src/request_body/request_body_or_reference.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
@@ -20,6 +22,8 @@ class Operation {
   List<ParameterOrReference>? parameters;
   @JsonKey(toJson: ExternalDocumentation.externalDocumentationToJson)
   ExternalDocumentation? externalDocs;
+  @JsonKey(toJson: RequestBody.requestBodyOrReferenceToJson)
+  RequestBodyOrReference? requestBody;
 
   Operation({
     this.tags,
@@ -29,6 +33,7 @@ class Operation {
     this.servers,
     this.parameters,
     this.externalDocs,
+    this.requestBody,
   });
 
   factory Operation.fromJson(Map<String, dynamic> json) =>
