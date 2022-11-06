@@ -1,3 +1,5 @@
+import 'package:dart_swagger_model/src/callback/callback.dart';
+import 'package:dart_swagger_model/src/callback/callback_or_reference.dart';
 import 'package:dart_swagger_model/src/request_body/request_body.dart';
 import 'package:dart_swagger_model/src/request_body/request_body_or_reference.dart';
 import 'package:dart_swagger_model/src/responses/responses.dart';
@@ -27,6 +29,9 @@ class Operation {
   ExternalDocumentation? externalDocs;
   @JsonKey(toJson: RequestBody.requestBodyOrReferenceToJson)
   RequestBodyOrReference? requestBody;
+  @JsonKey(toJson: Callback.nullableCallbacksToJson)
+  Map<String, CallbackOrReference>? callbacks;
+  bool? deprecated;
 
   Operation({
     required this.responses,
@@ -38,6 +43,8 @@ class Operation {
     this.parameters,
     this.externalDocs,
     this.requestBody,
+    this.callbacks,
+    this.deprecated = false,
   });
 
   factory Operation.fromJson(Map<String, dynamic> json) =>

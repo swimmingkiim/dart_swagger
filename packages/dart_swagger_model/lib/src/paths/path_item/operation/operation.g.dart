@@ -26,6 +26,11 @@ Operation _$OperationFromJson(Map<String, dynamic> json) => Operation(
           ? null
           : RequestBodyOrReference.fromJson(
               json['requestBody'] as Map<String, dynamic>),
+      callbacks: (json['callbacks'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(
+            k, CallbackOrReference.fromJson(e as Map<String, dynamic>)),
+      ),
+      deprecated: json['deprecated'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$OperationToJson(Operation instance) {
@@ -49,5 +54,8 @@ Map<String, dynamic> _$OperationToJson(Operation instance) {
       ExternalDocumentation.externalDocumentationToJson(instance.externalDocs));
   writeNotNull('requestBody',
       RequestBody.requestBodyOrReferenceToJson(instance.requestBody));
+  writeNotNull(
+      'callbacks', Callback.nullableCallbacksToJson(instance.callbacks));
+  writeNotNull('deprecated', instance.deprecated);
   return val;
 }
