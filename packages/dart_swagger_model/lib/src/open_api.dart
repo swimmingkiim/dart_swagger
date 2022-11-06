@@ -1,4 +1,6 @@
+import 'package:dart_swagger_model/src/external_documentation/external_documentation.dart';
 import 'package:dart_swagger_model/src/paths/paths.dart';
+import 'package:dart_swagger_model/src/security_requirement/security_requirement.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
@@ -16,12 +18,18 @@ class OpenApi {
   final Paths paths;
   @JsonKey(toJson: serversToJson)
   List<Server>? servers;
+  @JsonKey(toJson: SecurityRequirement.nullableSecurityRequirementToJson)
+  SecurityRequirement? securityRequirement;
+  @JsonKey(toJson: ExternalDocumentation.externalDocumentationToJson)
+  ExternalDocumentation? externalDocs;
 
   OpenApi({
     required this.openapi,
     required this.info,
     required this.paths,
     this.servers,
+    this.securityRequirement,
+    this.externalDocs,
   });
 
   factory OpenApi.fromJson(Map<String, dynamic> json) =>
