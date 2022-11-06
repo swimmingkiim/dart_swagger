@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
-import 'package:dart_swagger_model/src/server/server_variable/server_variable.dart';
+import 'package:dart_swagger_model/src/server_variable/server_variable.dart';
 
 part 'server.g.dart';
 
