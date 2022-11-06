@@ -7,6 +7,7 @@ part of 'operation.dart';
 // **************************************************************************
 
 Operation _$OperationFromJson(Map<String, dynamic> json) => Operation(
+      responses: Responses.fromJson(json['responses'] as Map<String, dynamic>),
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
       summary: json['summary'] as String?,
       description: json['description'] as String?,
@@ -28,7 +29,9 @@ Operation _$OperationFromJson(Map<String, dynamic> json) => Operation(
     );
 
 Map<String, dynamic> _$OperationToJson(Operation instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'responses': Responses.responsesToJson(instance.responses),
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

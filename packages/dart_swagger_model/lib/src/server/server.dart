@@ -23,4 +23,7 @@ class Server {
 
   static List<Map<String, dynamic>>? serversToJson(List<Server>? servers) =>
       servers?.map((server) => server.toJson()).toList();
+
+  static Map<String, dynamic>? nullableServerToJson(Server? server) =>
+      server?.toJson();
 }

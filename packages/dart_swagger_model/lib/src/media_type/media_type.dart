@@ -33,4 +33,8 @@ class MediaType {
 
   static Map<String, dynamic> contentToJson(Map<String, MediaType> content) =>
       content.map((key, value) => MapEntry(key, value.toJson()));
+
+  static Map<String, dynamic>? nullableContentToJson(
+          Map<String, MediaType>? content) =>
+      content?.map((key, value) => MapEntry(key, value.toJson()));
 }
