@@ -9,11 +9,13 @@ part of 'security_scheme.dart';
 SecurityScheme _$SecuritySchemeFromJson(Map<String, dynamic> json) =>
     SecurityScheme(
       type: json['type'] as String,
-      name: json['name'] as String,
-      $in: json['in'] as String,
-      scheme: json['scheme'] as String,
-      flows: OAuthFlows.fromJson(json['flows'] as Map<String, dynamic>),
-      openIdConnectUrl: json['openIdConnectUrl'] as String,
+      scheme: json['scheme'] as String?,
+      flows: json['flows'] == null
+          ? null
+          : OAuthFlows.fromJson(json['flows'] as Map<String, dynamic>),
+      openIdConnectUrl: json['openIdConnectUrl'] as String?,
+      name: json['name'] as String?,
+      $in: json['in'] as String?,
       description: json['description'] as String?,
       bearerFormat: json['bearerFormat'] as String?,
     );
@@ -30,11 +32,11 @@ Map<String, dynamic> _$SecuritySchemeToJson(SecurityScheme instance) {
   }
 
   writeNotNull('description', instance.description);
-  val['name'] = instance.name;
-  val['in'] = instance.$in;
-  val['scheme'] = instance.scheme;
+  writeNotNull('name', instance.name);
+  writeNotNull('in', instance.$in);
+  writeNotNull('scheme', instance.scheme);
   writeNotNull('bearerFormat', instance.bearerFormat);
-  val['flows'] = OAuthFlows.oAuthFlowToJson(instance.flows);
-  val['openIdConnectUrl'] = instance.openIdConnectUrl;
+  writeNotNull('flows', OAuthFlows.nullableOAuthFlowsToJson(instance.flows));
+  writeNotNull('openIdConnectUrl', instance.openIdConnectUrl);
   return val;
 }

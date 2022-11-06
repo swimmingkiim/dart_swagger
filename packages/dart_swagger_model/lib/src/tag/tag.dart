@@ -20,5 +20,6 @@ class Tag {
 
   Map<String, dynamic> toJson() => _$TagToJson(this);
 
-  static List<Map<String, dynamic>>? nullableTagsToJson(List<Tag>? tags) => tags?.map((tag) => tag.toJson()).toList();
+  static List<Map<String, dynamic>>? nullableTagsToJson(List<Tag>? tags) =>
+      tags?.map((tag) => tag.toJson()).toList();
 }

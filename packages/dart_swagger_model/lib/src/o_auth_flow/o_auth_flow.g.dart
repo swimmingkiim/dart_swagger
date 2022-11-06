@@ -8,16 +8,14 @@ part of 'o_auth_flow.dart';
 
 OAuthFlow _$OAuthFlowFromJson(Map<String, dynamic> json) => OAuthFlow(
       authorizationUrl: json['authorizationUrl'] as String,
-      tokenUrl: json['tokenUrl'] as String,
       scopes: Map<String, String>.from(json['scopes'] as Map),
+      tokenUrl: json['tokenUrl'] as String?,
       refreshUrl: json['refreshUrl'] as String?,
     );
 
 Map<String, dynamic> _$OAuthFlowToJson(OAuthFlow instance) {
   final val = <String, dynamic>{
     'authorizationUrl': instance.authorizationUrl,
-    'tokenUrl': instance.tokenUrl,
-    'scopes': instance.scopes,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -26,6 +24,8 @@ Map<String, dynamic> _$OAuthFlowToJson(OAuthFlow instance) {
     }
   }
 
+  writeNotNull('tokenUrl', instance.tokenUrl);
+  val['scopes'] = instance.scopes;
   writeNotNull('refreshUrl', instance.refreshUrl);
   return val;
 }

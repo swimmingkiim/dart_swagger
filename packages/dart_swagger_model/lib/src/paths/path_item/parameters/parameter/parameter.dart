@@ -1,5 +1,8 @@
 import 'package:dart_swagger_model/src/example/example.dart';
+import 'package:dart_swagger_model/src/media_type/media_type.dart';
 import 'package:dart_swagger_model/src/paths/path_item/parameters/parameter/parameter_or_reference.dart';
+import 'package:dart_swagger_model/src/schema/schema.dart';
+import 'package:dart_swagger_model/src/schema/schema_or_reference.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
@@ -22,6 +25,10 @@ class Parameter {
   dynamic example;
   @JsonKey(toJson: Example.examplesToJson)
   Map<String, ExampleOrReference>? examples;
+  @JsonKey(toJson: Schema.schemaOrReferenceToJson)
+  SchemaOrReference? schema;
+  @JsonKey(toJson: MediaType.nullableContentToJson)
+  Map<String, MediaType>? content;
 
   Parameter({
     required this.name,
@@ -35,6 +42,7 @@ class Parameter {
     this.allowReserved = false,
     this.example,
     this.examples,
+    this.schema,
   });
 
   factory Parameter.fromJson(Map<String, dynamic> json) =>
@@ -45,4 +53,8 @@ class Parameter {
   static List<Map<String, dynamic>>? parametersToJson(
           List<ParameterOrReference>? parameters) =>
       parameters?.map((parameter) => parameter.toJson()).toList();
+
+  static Map<String, dynamic>? nullableParametersToJson(
+          Map<String, ParameterOrReference>? parameters) =>
+      parameters?.map((key, value) => MapEntry(key, value.toJson()));
 }

@@ -5,14 +5,14 @@ part 'o_auth_flow.g.dart';
 @JsonSerializable()
 class OAuthFlow {
   String authorizationUrl;
-  String tokenUrl;
+  String? tokenUrl;
   Map<String, String> scopes;
   String? refreshUrl;
 
   OAuthFlow({
     required this.authorizationUrl,
-    required this.tokenUrl,
     required this.scopes,
+    this.tokenUrl,
     this.refreshUrl,
   });
 

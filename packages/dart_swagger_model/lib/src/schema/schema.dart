@@ -34,7 +34,7 @@ class Schema {
   bool? uniqueItems;
   int? maxProperties;
   int? minProperties;
-  bool? required;
+  List<String>? required;
   @JsonKey(name: 'enum')
   List<String>? $enum;
 
@@ -110,4 +110,8 @@ class Schema {
       SchemaOrBoolean.fromValue(value);
   static schemaOrBooleanToValue(SchemaOrBoolean? schemaOrBoolean) =>
       schemaOrBoolean?.toValue();
+
+  static Map<String, dynamic>? nullableSchemasToJson(
+          Map<String, SchemaOrReference>? schemas) =>
+      schemas?.map((key, value) => MapEntry(key, value.toJson()));
 }

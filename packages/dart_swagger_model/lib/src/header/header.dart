@@ -1,4 +1,7 @@
 import 'package:dart_swagger_model/src/header/header_or_reference.dart';
+import 'package:dart_swagger_model/src/media_type/media_type.dart';
+import 'package:dart_swagger_model/src/schema/schema.dart';
+import 'package:dart_swagger_model/src/schema/schema_or_reference.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // sub models
@@ -19,6 +22,10 @@ class Header {
   dynamic example;
   @JsonKey(toJson: Example.examplesToJson)
   Map<String, ExampleOrReference>? examples;
+  @JsonKey(toJson: Schema.schemaOrReferenceToJson)
+  SchemaOrReference? schema;
+  @JsonKey(toJson: MediaType.nullableContentToJson)
+  Map<String, MediaType>? content;
 
   Header({
     this.description,
@@ -30,6 +37,8 @@ class Header {
     this.allowReserved = false,
     this.example,
     this.examples,
+    this.schema,
+    this.content,
   });
 
   factory Header.fromJson(Map<String, dynamic> json) => _$HeaderFromJson(json);

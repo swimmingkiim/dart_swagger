@@ -1,5 +1,7 @@
-import 'package:dart_swagger_model/src/example/example_or_reference.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+// sub models
+import 'package:dart_swagger_model/src/example/example_or_reference.dart';
 
 part 'example.g.dart';
 

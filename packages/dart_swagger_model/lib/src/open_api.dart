@@ -1,3 +1,4 @@
+import 'package:dart_swagger_model/src/components/components.dart';
 import 'package:dart_swagger_model/src/external_documentation/external_documentation.dart';
 import 'package:dart_swagger_model/src/paths/paths.dart';
 import 'package:dart_swagger_model/src/security_requirement/security_requirement.dart';
@@ -25,6 +26,8 @@ class OpenApi {
   ExternalDocumentation? externalDocs;
   @JsonKey(toJson: Tag.nullableTagsToJson)
   List<Tag>? tags;
+  @JsonKey(toJson: Components.nullableComponentsToJson)
+  Components? components;
 
   OpenApi({
     required this.openapi,
@@ -34,6 +37,7 @@ class OpenApi {
     this.securityRequirement,
     this.externalDocs,
     this.tags,
+    this.components,
   });
 
   factory OpenApi.fromJson(Map<String, dynamic> json) =>

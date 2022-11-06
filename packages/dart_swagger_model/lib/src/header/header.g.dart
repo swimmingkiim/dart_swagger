@@ -19,6 +19,12 @@ Header _$HeaderFromJson(Map<String, dynamic> json) => Header(
         (k, e) =>
             MapEntry(k, ExampleOrReference.fromJson(e as Map<String, dynamic>)),
       ),
+      schema: json['schema'] == null
+          ? null
+          : SchemaOrReference.fromJson(json['schema'] as Map<String, dynamic>),
+      content: (json['content'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, MediaType.fromJson(e as Map<String, dynamic>)),
+      ),
     );
 
 Map<String, dynamic> _$HeaderToJson(Header instance) {
@@ -39,5 +45,7 @@ Map<String, dynamic> _$HeaderToJson(Header instance) {
   writeNotNull('allowReserved', instance.allowReserved);
   writeNotNull('example', instance.example);
   writeNotNull('examples', Example.examplesToJson(instance.examples));
+  writeNotNull('schema', Schema.schemaOrReferenceToJson(instance.schema));
+  writeNotNull('content', MediaType.nullableContentToJson(instance.content));
   return val;
 }

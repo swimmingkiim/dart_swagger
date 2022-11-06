@@ -27,4 +27,8 @@ class RequestBody {
   static Map<String, dynamic>? requestBodyOrReferenceToJson(
           RequestBodyOrReference? requestBodyOrReference) =>
       requestBodyOrReference?.toJson();
+
+  static Map<String, dynamic>? nullableRequestBodiesOrReferenceToJson(
+          Map<String, RequestBodyOrReference>? requestBodies) =>
+      requestBodies?.map((key, value) => MapEntry(key, value.toJson()));
 }

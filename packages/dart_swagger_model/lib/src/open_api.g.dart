@@ -24,6 +24,9 @@ OpenApi _$OpenApiFromJson(Map<String, dynamic> json) => OpenApi(
       tags: (json['tags'] as List<dynamic>?)
           ?.map((e) => Tag.fromJson(e as Map<String, dynamic>))
           .toList(),
+      components: json['components'] == null
+          ? null
+          : Components.fromJson(json['components'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$OpenApiToJson(OpenApi instance) {
@@ -47,5 +50,7 @@ Map<String, dynamic> _$OpenApiToJson(OpenApi instance) {
   writeNotNull('externalDocs',
       ExternalDocumentation.externalDocumentationToJson(instance.externalDocs));
   writeNotNull('tags', Tag.nullableTagsToJson(instance.tags));
+  writeNotNull(
+      'components', Components.nullableComponentsToJson(instance.components));
   return val;
 }

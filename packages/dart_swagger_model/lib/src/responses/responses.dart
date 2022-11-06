@@ -30,8 +30,13 @@ class Responses {
 
   Map<String, dynamic> toJson() {
     final json = _$ResponsesToJson(this);
+    if ($default != null) {
+      return {
+        'default': json['default'],
+        ...json['\$responses'],
+      };
+    }
     return {
-      'default': json['default'],
       ...json['\$responses'],
     };
   }

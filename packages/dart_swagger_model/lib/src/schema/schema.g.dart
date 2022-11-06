@@ -33,7 +33,9 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) => Schema(
       uniqueItems: json['uniqueItems'] as bool?,
       maxProperties: json['maxProperties'] as int?,
       minProperties: json['minProperties'] as int?,
-      required: json['required'] as bool?,
+      required: (json['required'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       $enum: (json['enum'] as List<dynamic>?)?.map((e) => e as String).toList(),
       type: json['type'] as String?,
       allOf: (json['allOf'] as List<dynamic>?)
